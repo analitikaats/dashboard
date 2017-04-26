@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <base href="##urlJs1C##">
+
+    <link rel="stylesheet" href="devextreme/css/dx.common.css" type="text/css">
+    <link rel="stylesheet" href="devextreme/css/dx.light.css" type="text/css">
+
+    <script>
+        delete window.$;
+        delete ko;
+    </script>
+    <script src="devextreme/js/jquery-2.2.3.min.js"></script>
+    <script src="devextreme/js/knockout-min.js"></script>
+    <script src="devextreme/js/jszip.min.js"></script>
+    <script src="devextreme/js/cldr.min.js"></script>
+    <script src="devextreme/js/cldr/event.min.js"></script>
+    <script src="devextreme/js/cldr/supplemental.min.js"></script>
+    <script src="devextreme/js/globalize.min.js"></script>
+    <script src="devextreme/js/globalize/message.min.js"></script>
+    <script src="devextreme/js/globalize/number.min.js"></script>
+    <script src="devextreme/js/globalize/currency.min.js"></script>
+    <script src="devextreme/js/globalize/date.min.js"></script>
+    <script>
+        delete window.DevExpress;
+    </script>
+    <script src="devextreme/js/dx.all.js"></script>
+    <script src="devextreme/js/localization/dx.all.ru.js"></script>
+    <script src="js/dashboard-min.js"></script>
+
+    <style>
+        body {
+            padding: 0 10px;
+            background-color: rgb(252, 252, 252);
+        }
+
+        #page {
+            min-width: 900px;
+            max-width: 1055px;
+            margin: 0 auto;
+        }
+
+        .header {
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .container {
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        .graphic {
+            min-height: 400px;
+            position: relative;
+            padding: 10px 10px 10px 10px;
+            border-radius: 0px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.1);
+        }
+
+        .left {
+            float: left;
+            width: 49%;
+        }
+
+        .right {
+            float: right;
+            width: 49%;
+        }
+    </style>
+
+    <script>
+       var dataZip = "##dataZip##";
+    </script>
+</head>
+<body class="dx-viewport" style="background-color: rgb(252, 252, 252);">
+    <div id="page">
+        <div class="header">Общая информация по звонкам</div>
+        <div class="container">
+            <div class="graphic" data-bind="dxChart: lineDynamicsExtCallsOld30DaysOptions"></div>
+        </div>
+        <div class="container">
+            <div class="graphic" data-bind="dxChart: lineDynamicsRedFirstCallsOld30DaysOptions"></div>
+        </div>
+        <div class="container">
+            <div id="barLinesLoad" class="graphic" data-bind="dxChart: barLinesLoadOptions"></div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <div id="gaugeMissedIncomingCalls" class="graphic" data-bind="dxCircularGauge: gaugeMissedIncomingCallsOptions" style="min-height:300px"></div>
+            </div>
+            <div class="right">
+                <div id="gaugeMissedOutcomingCalls" class="graphic" data-bind="dxCircularGauge: gaugeMissedOutcomingCallsOptions" style="min-height:300px;"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <div class="graphic" data-bind="dxChart: barAverageWaitingTimeNowOptions" style="min-height:300px"></div>
+            </div>
+            <div class="right">
+                <div id="gaugeAverageCountCallsOneEmployee" class="graphic" data-bind="dxLinearGauge: gaugeAverageCountCallsOneEmployeeOptions" style="min-height:300px;"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <div id="paeWeekDaysCalls" class="graphic" data-bind="dxPieChart: paeWeekDaysCallsOptions"></div>
+            </div>
+            <div class="right">
+                <div id="paeLinesLoadTime" class="graphic" data-bind="dxPieChart: paeLinesLoadTimeOptions"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="paeSubdivisionCalls" class="graphic" data-bind="dxPieChart: paeSubdivisionCallsOptions"></div>
+        </div>
+    </div>
+</body>
+</html>

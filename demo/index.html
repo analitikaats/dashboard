@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="js/devextreme/css/dx.common.css" type="text/css">
+    <link rel="stylesheet" href="js/devextreme/css/dx.light.css" type="text/css">
+
+    <script>
+        delete window.$;
+        delete ko;
+    </script>
+    <script src="js/devextreme/js/jquery-2.2.3.min.js"></script>
+    <script src="js/devextreme/js/knockout-min.js"></script>
+    <script src="js/devextreme/js/jszip.min.js"></script>
+    <script src="js/devextreme/js/cldr.min.js"></script>
+    <script src="js/devextreme/js/cldr/event.min.js"></script>
+    <script src="js/devextreme/js/cldr/supplemental.min.js"></script>
+    <script src="js/devextreme/js/globalize.min.js"></script>
+    <script src="js/devextreme/js/globalize/message.min.js"></script>
+    <script src="js/devextreme/js/globalize/number.min.js"></script>
+    <script src="js/devextreme/js/globalize/currency.min.js"></script>
+    <script src="js/devextreme/js/globalize/date.min.js"></script>
+    <script>
+        delete window.DevExpress;
+    </script>
+    <script src="js/devextreme/js/dx.all.js"></script>
+    <script src="js/devextreme/js/localization/dx.all.ru.js"></script>
+    <script src="js/dashboard-min.js"></script>
+
+    <style>
+        body {
+            padding: 0 10px;
+            background-color: rgb(252, 252, 252);
+        }
+
+        #page {
+            min-width: 900px;
+            max-width: 1055px;
+            margin: 0 auto;
+        }
+
+        .header {
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .container {
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        .graphic {
+            min-height: 400px;
+            position: relative;
+            padding: 10px 10px 10px 10px;
+            border-radius: 0px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.1);
+        }
+
+        .left {
+            float: left;
+            width: 49%;
+        }
+
+        .right {
+            float: right;
+            width: 49%;
+        }
+    </style>
+
+    <script>
+        var dataZip = "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";
+    </script>
+</head>
+<body class="dx-viewport" style="background-color: rgb(252, 252, 252);">
+    <div id="page">
+        <div class="header">Общая информация по звонкам</div>
+        <div class="container">
+            <div class="graphic" data-bind="dxChart: lineDynamicsExtCallsOld30DaysOptions"></div>
+        </div>
+        <div class="container">
+            <div class="graphic" data-bind="dxChart: lineDynamicsRedFirstCallsOld30DaysOptions"></div>
+        </div>
+        <div class="container">
+            <div id="barLinesLoad" class="graphic" data-bind="dxChart: barLinesLoadOptions"></div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <div id="gaugeMissedIncomingCalls" class="graphic" data-bind="dxCircularGauge: gaugeMissedIncomingCallsOptions" style="min-height:300px"></div>
+            </div>
+            <div class="right">
+                <div id="gaugeMissedOutcomingCalls" class="graphic" data-bind="dxCircularGauge: gaugeMissedOutcomingCallsOptions" style="min-height:300px;"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <div class="graphic" data-bind="dxChart: barAverageWaitingTimeNowOptions" style="min-height:300px"></div>
+            </div>
+            <div class="right">
+                <div id="gaugeAverageCountCallsOneEmployee" class="graphic" data-bind="dxLinearGauge: gaugeAverageCountCallsOneEmployeeOptions" style="min-height:300px;"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <div id="paeWeekDaysCalls" class="graphic" data-bind="dxPieChart: paeWeekDaysCallsOptions"></div>
+            </div>
+            <div class="right">
+                <div id="paeLinesLoadTime" class="graphic" data-bind="dxPieChart: paeLinesLoadTimeOptions"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="paeSubdivisionCalls" class="graphic" data-bind="dxPieChart: paeSubdivisionCallsOptions"></div>
+        </div>
+    </div>
+</body>
+</html>
